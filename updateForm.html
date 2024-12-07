@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Employee Managment System</title>
+    <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+            integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+            crossorigin="anonymous"
+    />
+</head>
+<body>
+<nav class="navbar navbar-dark bg-dark navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <h1 style="color: white">Employee</h1>
+        </div>
+    </div>
+</nav>
+<br />
+<br />
+<div class="container">
+    <h1>Employee Managment System</h1>
+    <hr />
+    <h2>Update  Employee</h2>
+    <form th:action="@{/updateEmployees/{id}(id=${employee.id})}"
+          th:object="${employee}"
+          method="post"
+    >
+        <input type="hidden" th:field="*{id}" />
+
+        <input
+                type="text"
+                th:field="*{empName}"
+                placeholder="Employee Name"
+                class="form-control mb-4 col-4"
+
+        />
+
+        <input
+                type="text"
+                th:field="*{role}"
+                placeholder="Employee role "
+                class="form-control mb-4 col-4"
+
+        />
+
+        <input
+                type="text"
+                th:field="*{email}"
+                placeholder="Employee Email"
+                class="form-control mb-4 col-4"
+
+        />
+        <button type="submit" class="btn btn-info col-4">update</button>
+    </form>
+    <hr />
+    <a th:href="@{/index}">Back to Employee List</a>
+</div>
+</body>
+</html>
